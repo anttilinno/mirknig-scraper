@@ -1,0 +1,57 @@
+<html>
+
+<head>
+    <title>MirKnig Books</title>
+    <style>
+        .container {
+            padding: 5px;
+            display: flex;
+        }
+
+        .label {
+            background-color: antiquewhite;
+            width: 100px;
+        }
+
+        .content {
+            background-color: bisque;
+            width: 100%;
+        }
+
+        .image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .description {
+            width: 100%;
+            padding-left: 10px;
+            padding-right: 20px;
+            background-color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>MirKnig</h1>
+    {% for book in books %}
+    {% for k in book.keys() %}
+    {% if k == "image" -%}
+    <div class="image">
+        <img src="{{ book[k] }}">
+    </div>
+    {% elif k == "description" -%}
+    <div class="description">{{book[k]}}</div>
+    {% else -%}
+    <div class="container">
+        <div class="label">{{k}}</div>
+        <div class="content">{{book[k]}}</div>
+    </div>
+    {% endif %}
+    {% endfor %}
+    <p />
+    {% endfor %}
+</body>
+
+</html>

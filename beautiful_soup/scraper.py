@@ -76,7 +76,7 @@ class Mir_Knig_Book(Book):
 
     def _find_description(self, soup_book_record):
         book_raw_info = re.findall(
-            ".*?(<!--TEnd-->|<!--dle_image_end-->)(.+)?<br\/><br\/>(.+)?</td>",
+            r".*?(<!--TEnd-->|<!--dle_image_end-->)(.+)?<br/><br/>(.+)?</td>",
             str(soup_book_record),
         )
         self.book_description = book_raw_info[0][2].replace(r"<br/>", "\n")
